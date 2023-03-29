@@ -24,34 +24,34 @@ export default function Main({ onEditProfile, onAddPlace, onEditAvatar, onCardCl
 
     return(
         <main className="content">
-        <section className="profile">
-          <div className="profile__personal-data">
-            <div className="profile__avatar-block">
-              <img onClick={onEditAvatar} className="profile__avatar" src={userAvatar}/>
-            </div>
-            <div className="profile__info">
-              <div className="profile__group">
-                <h1 className="profile__name">{userName}</h1>
-                <p className="profile__description">{userDescription}</p>
+          <section className="profile">
+            <div className="profile__personal-data">
+              <div className="profile__avatar-block">
+                <img onClick={onEditAvatar} alt="Аватар" className="profile__avatar" src={userAvatar}/>
               </div>
-              <button type="button" onClick={onEditProfile} className="profile__edit-button" aria-label="Редактировать профиль"></button>
+              <div className="profile__info">
+                <div className="profile__group">
+                  <h1 className="profile__name">{userName}</h1>
+                  <p className="profile__description">{userDescription}</p>
+                </div>
+                <button type="button" onClick={onEditProfile} className="profile__edit-button" aria-label="Редактировать профиль"></button>
+              </div>
             </div>
-          </div>
-          <button type="button" onClick={onAddPlace} className="profile__add-button" aria-label="Добавить карточку"></button>
-        </section>
-        <section className="elements">{cards.map((card) => {
-          return (
-            <Card
-              key={card._id}
-              name={card.name}
-              link={card.link}
-              likesCount={card.likes}
-              onCardClick={onCardClick}
-            />
-          )
-          })}
-        </section>
-      </main>
+            <button type="button" onClick={onAddPlace} className="profile__add-button" aria-label="Добавить карточку"></button>
+          </section>
+          <section className="elements">{cards.map((card) => {
+            return (
+              <Card
+                key={card._id}
+                name={card.name}
+                link={card.link}
+                likesCount={card.likes}
+                onCardClick={onCardClick}
+              />
+            )
+            })}
+          </section>
+        </main>
 
     );
 }

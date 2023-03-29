@@ -9,7 +9,7 @@ function PopupWithForm({ isOpened, onClose, name, title, text, children }) {
                     <h3 className='popup__title'>{title}</h3>
                     <form className={`popup__form popup__form-${name}`} name={`${name}-form`}>
                         <fieldset className="popup__fieldset">
-                            {children}
+                            <>{children}</>
                         </fieldset>
                         <button type="submit" id={`${name}-submit-btn`} className="popup__submit-button">{text}</button>
                     </form>
