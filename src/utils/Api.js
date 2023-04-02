@@ -21,7 +21,7 @@ export class Api {
         .then(this._checkStatus);
     };
 
-    _post(link, method, body = []) {
+    _post(link, method, body) {
         return fetch(`${this._baseUrl}${link}`, {
             method: method,
             headers: this._headers,
