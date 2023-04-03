@@ -17,9 +17,7 @@ function PopupWithForm({ isOpen, onClose, name, title, text, children, onSubmit 
                         onSubmit={onSubmit}
                     >
                         <fieldset className="popup__fieldset">
-                            <>
-                                {children}
-                            </>
+                            {children}
                         </fieldset>
                         <button 
                             type="submit" 

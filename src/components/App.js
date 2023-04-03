@@ -63,7 +63,6 @@ function App() {
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setImagePopupOpen(false);
-    setSelectedCard({ ...selectedCard});
   }
 
   function handleCardLike(card) {
@@ -75,8 +74,8 @@ function App() {
             state.map((item) => (item._id === card._id ? newCard : item))
           )
         )
-        .catch((error) => {
-          console.log(`Ошибка: ${error}`)
+        .catch((err) => {
+          console.log(err)
         })
     } else {
       api
@@ -162,29 +161,29 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopups}
         onUpdateUser={handleUpdateUser}
-        onLoading={isLoading}
+        isLoading={isLoading}
       />
       <AddPlacePopup
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopups}
         onAddPlace={handleAddPlaceSubmit}
-        onLoading={isLoading}
+        isLoading={isLoading}
       />
 
       <EditAvatarPopup 
         isOpen={isEditAvatarPopupOpen} 
         onClose={closeAllPopups}
         onUpdateAvatar={handleUpdateAvatar}
-        onLoading={isLoading}
+        isLoading={isLoading}
       />
 
       <ImagePopup card={selectedCard} isOpen={isImagePopupOpen} onClose={closeAllPopups} />
 
       <PopupWithForm
-        isOpened={''}
-        name={'confirm'}
-        title={'Вы уверены?'}
-        text={'Да'}
+        isOpened=''
+        name='confirm'
+        title='Вы уверены?'
+        text='Да'
         />
     </CurrentUserContext.Provider>
   );
